@@ -15,9 +15,12 @@ const useStore = create((set) => ({
                 set({ data: response.data, error: null });
             }
         } catch (error) {
+            const errorMessage = (error.status === 404 || error.response?.status === 404) ?
+                "شهر یا کشوری با نام وارد شده وجود ندارد." :
+                "مشکلی رخ داده است، لطفاً چند لحظه دیگر مجدداً تلاش کنید.";
             set({
                 data: null,
-                error: "شهر یا کشوری با نام وارد شده وجود ندارد.",
+                error: errorMessage,
                 status: "usual"
             });
         } finally {
@@ -32,9 +35,12 @@ const useStore = create((set) => ({
                 set({ data: response.data, error: null });
             }
         } catch (error) {
+            const errorMessage = (error.status === 404 || error.response?.status === 404) ?
+                "مختصات وارد شده نامعتبر می‌باشد." :
+                "مشکلی رخ داده است، لطفاً چند لحظه دیگر مجدداً تلاش کنید.";
             set({
                 data: null,
-                error: "مختصات وارد شده نامعتبر می‌باشد.",
+                error: errorMessage,
                 status: "usual"
             });
         } finally {

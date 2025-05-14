@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ActivityIndicator, Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from 'react-native';
 import AppButton from './AppButton';
 import useStore from '../store/store';
@@ -6,6 +6,9 @@ import useStore from '../store/store';
 const Coord = () => {
     const [lat, setLat] = useState("");
     const [lon, setLon] = useState("");
+
+    const latInputRef = useRef(null);
+    const lonInputRef = useRef(null);
 
     const getWeatherByCoordHandler = useStore(state => state.getWeatherByCoordHandler);
     const data = useStore(state => state.data);
@@ -19,6 +22,22 @@ const Coord = () => {
         setLon(text);
     }
 
+    const latSubmitHandler = () => {
+        if (lat.trim() && lon.trim()) {
+            submitHandler();
+        } else {
+            lonInputRef?.current?.focus();
+        }
+    }
+
+    const lonSubmitHandler = () => {
+        if (lat.trim() && lon.trim()) {
+            submitHandler();
+        } else {
+            latInputRef?.current?.focus();
+        }
+    }
+
     const submitHandler = async () => {
         const latNumber = Number(lat);
         const lonNumber = Number(lon);
@@ -28,7 +47,7 @@ const Coord = () => {
             ], {
                 cancelable: true,
             });
-        }  else if (Number.isNaN(latNumber) || Number.isNaN(lonNumber)) {
+        } else if (Number.isNaN(latNumber) || Number.isNaN(lonNumber)) {
             return Alert.alert("خطا", "لطفا در فیلدها، فقط عدد وارد کنید.", [
                 { text: "متوجه شدم" }
             ], {
@@ -64,15 +83,19 @@ const Coord = () => {
                     style={styles.input}
                     autoCorrect={false}
                     keyboardType="decimal-pad"
+                    ref={latInputRef}
+                    onSubmitEditing={latSubmitHandler}
                 />
                 <TextInput
                     value={lon}
                     onChangeText={changeLonHandler}
-                    placeholder={data?.coord ? String(data.coord.lon) : "طول جغرافیایی"}
+                    placeholder={data?.coord ? String(data.coord.lon) : "عرض جغرافیایی"}
                     placeholderTextColor="gray"
                     style={styles.input}
                     autoCorrect={false}
                     keyboardType="decimal-pad"
+                    ref={lonInputRef}
+                    onSubmitEditing={lonSubmitHandler}
                 />
             </View>
             {loading ? (

@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
     },
     descriptionText: {
         fontFamily: "Shabnam",
-        fontSize: 16,
         textAlign: "center",
     }
 });
