@@ -15,7 +15,11 @@ const useStore = create((set) => ({
                 set({ data: response.data, error: null });
             }
         } catch (error) {
-            set({ data: null, error: error.message, status: "usual" });
+            set({
+                data: null,
+                error: "شهر یا کشوری با نام وارد شده وجود ندارد.",
+                status: "usual"
+            });
         } finally {
             set({ loading: false });
         }
@@ -25,10 +29,14 @@ const useStore = create((set) => ({
         try {
             const response = await getWeatherByCoordService(lat, lon);
             if (response.status === 200) {
-                set({ data: response.data, error: null, status: "usual" });
+                set({ data: response.data, error: null });
             }
         } catch (error) {
-            set({ data: null, error: error.message });
+            set({
+                data: null,
+                error: "مختصات وارد شده نامعتبر می‌باشد.",
+                status: "usual"
+            });
         } finally {
             set({ loading: false });
         }

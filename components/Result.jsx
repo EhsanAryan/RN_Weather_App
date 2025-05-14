@@ -11,15 +11,9 @@ const Result = ({ tab }) => {
     return (
         <View style={styles.container}>
             {error ? (
-                tab === 1 ? (
-                    <Text style={[styles.boldText, styles.errorText]}>
-                        شهر یا کشوری با نام وارد شده وجود ندارد.
-                    </Text>
-                ) : (
-                    <Text style={[styles.boldText, styles.errorText]}>
-                        مختصات وارد شده نامعتبر می‌باشد.
-                    </Text>
-                )
+                <Text style={[styles.boldText, styles.errorText]}>
+                    {error}
+                </Text>
             ) : data ? (
                 <View style={styles.resultContainer}>
                     <View style={[styles.resultBox, styles.tempBox]}>
@@ -38,7 +32,7 @@ const Result = ({ tab }) => {
                             {data.weather[0].main}
                         </Text>
                     </LinearGradient>
-                    
+
                     <View style={styles.resultBox}>
                         <Text style={styles.descriptionText}>
                             {data.weather[0].description}
