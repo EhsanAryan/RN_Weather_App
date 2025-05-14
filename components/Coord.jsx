@@ -60,6 +60,7 @@ const Coord = () => {
                     value={lat}
                     onChangeText={changeLatHandler}
                     placeholder={data?.coord ? String(data.coord.lat) : "طول جغرافیایی"}
+                    placeholderTextColor="gray"
                     style={styles.input}
                     autoCorrect={false}
                     keyboardType="decimal-pad"
@@ -68,6 +69,7 @@ const Coord = () => {
                     value={lon}
                     onChangeText={changeLonHandler}
                     placeholder={data?.coord ? String(data.coord.lon) : "طول جغرافیایی"}
+                    placeholderTextColor="gray"
                     style={styles.input}
                     autoCorrect={false}
                     keyboardType="decimal-pad"
@@ -119,6 +121,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         borderBottomColor: "black",
         borderBottomWidth: 2,
+        direction: "ltr",
     },
     loadingContainer: {
         gap: 5,

@@ -33,6 +33,7 @@ const Query = () => {
                 value={query}
                 onChangeText={changeQueryHandler}
                 placeholder={data?.name ? data.name : "نام شهر یا کشور"}
+                placeholderTextColor="gray"
                 style={styles.input}
                 autoCorrect={false}
                 onSubmitEditing={submitHandler}
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         borderBottomColor: "black",
         borderBottomWidth: 2,
+        direction: "ltr",
     },
     loadingContainer: {
         gap: 5,
