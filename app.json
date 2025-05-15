@@ -22,8 +22,7 @@
         "backgroundColor": "#000000"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.ehsanaryan.WeatherApp",
-      "versionCode": 5
+      "package": "com.ehsanaryan.WeatherApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
