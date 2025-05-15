@@ -38,7 +38,7 @@ export default function App() {
             <StatusBar style="auto" />
             <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
                 <ImageBackground
-                    style={styles.container}
+                    style={{ flex: 1 }}
                     source={status === "usual" ?
                         require(`./assets/pics/background/usual.jpg`) :
                         status === "hot" ?
@@ -67,7 +67,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        direction: "rtl"
+        direction: "rtl",
     },
     scrollView: {
         flex: 1,

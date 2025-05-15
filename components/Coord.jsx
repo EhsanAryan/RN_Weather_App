@@ -82,7 +82,7 @@ const Coord = () => {
                     placeholderTextColor="gray"
                     style={styles.input}
                     autoCorrect={false}
-                    keyboardType="decimal-pad"
+                    keyboardType="numeric"
                     ref={latInputRef}
                     onSubmitEditing={latSubmitHandler}
                 />
@@ -93,7 +93,7 @@ const Coord = () => {
                     placeholderTextColor="gray"
                     style={styles.input}
                     autoCorrect={false}
-                    keyboardType="decimal-pad"
+                    keyboardType="numeric"
                     ref={lonInputRef}
                     onSubmitEditing={lonSubmitHandler}
                 />
