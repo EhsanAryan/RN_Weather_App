@@ -54,6 +54,7 @@ export default function App() {
                     <ScrollView
                         style={styles.scrollView}
                         contentContainerStyle={styles.scrollViewContentContainer}
+                        keyboardShouldPersistTaps="handled"
                     >
                         {loaded && <Weather />}
                     </ScrollView>

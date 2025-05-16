@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ActivityIndicator, Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, View, Keyboard } from 'react-native';
 import AppButton from './AppButton';
 import useStore from '../store/store';
 
@@ -23,6 +23,7 @@ const Query = () => {
             });
         }
 
+        Keyboard.dismiss();
         await getWeatherByNameHandler(query);
         setQuery("");
     }

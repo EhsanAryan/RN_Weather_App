@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ActivityIndicator, Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, View, Keyboard } from 'react-native';
 import AppButton from './AppButton';
 import useStore from '../store/store';
 
@@ -67,6 +67,7 @@ const Coord = () => {
             });
         }
 
+        Keyboard.dismiss();
         await getWeatherByCoordHandler(lat, lon);
         setLat("");
         setLon("");
