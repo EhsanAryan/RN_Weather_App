@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useStore from '../store/store';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
+import NetInfo from '@react-native-community/netinfo';
 
 const Result = ({ tab }) => {
+    const [isConnected, setIsConnected] = useState(true);
+
+    useEffect(() => {
+        const unsubscribe = NetInfo.addEventListener(state => {
+            setIsConnected(state.isConnected);
+        });
+
+        return () => {
+            unsubscribe();
+        }
+    }, []);
 
     const data = useStore(state => state.data);
     const error = useStore(state => state.error);
@@ -12,7 +24,9 @@ const Result = ({ tab }) => {
         <View style={styles.container}>
             {error ? (
                 <Text style={[styles.boldText, styles.errorText]}>
-                    {error}
+                    {isConnected ?
+                        error :
+                        "لطفاً اتصال به اینترنت را بررسی کنید."}
                 </Text>
             ) : data ? (
                 <View style={styles.resultContainer}>
