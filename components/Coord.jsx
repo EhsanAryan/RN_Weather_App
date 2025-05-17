@@ -74,7 +74,7 @@ const Coord = () => {
     }
 
     return (
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <KeyboardAvoidingView behavior="height" style={styles.container}>
             <View style={styles.inputsContainer}>
                 <TextInput
                     value={lat}

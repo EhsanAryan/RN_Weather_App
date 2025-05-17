@@ -29,7 +29,7 @@ const Query = () => {
     }
 
     return (
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <KeyboardAvoidingView behavior="height" style={styles.container}>
             <TextInput
                 value={query}
                 onChangeText={changeQueryHandler}

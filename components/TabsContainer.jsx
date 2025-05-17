@@ -12,6 +12,8 @@ const TabsContainer = ({ tab, setTab }) => {
                 style={{
                     borderColor: "black",
                     borderWidth: tab === 1 ? 0 : 1,
+                    justifyContent: "center",
+                    alignItems: "center"
                 }}
                 containerStyle={{
                     flex: 1
@@ -29,6 +31,8 @@ const TabsContainer = ({ tab, setTab }) => {
                 style={{
                     borderColor: "black",
                     borderWidth: tab === 2 ? 0 : 1,
+                    justifyContent: "center",
+                    alignItems: "center"
                 }}
                 containerStyle={{
                     flex: 1
