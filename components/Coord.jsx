@@ -7,12 +7,12 @@ const Coord = () => {
     const [lat, setLat] = useState("");
     const [lon, setLon] = useState("");
 
-    const latInputRef = useRef(null);
-    const lonInputRef = useRef(null);
-
     const getWeatherByCoordHandler = useStore(state => state.getWeatherByCoordHandler);
     const data = useStore(state => state.data);
     const loading = useStore(state => state.loading);
+
+    const latInputRef = useRef(null);
+    const lonInputRef = useRef(null);
 
     const changeLatHandler = (text) => {
         setLat(text);
