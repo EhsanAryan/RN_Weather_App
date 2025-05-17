@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Query from './Query';
 import Coord from './Coord';
-import AppButton from './AppButton';
 import Result from './Result';
 import TabsContainer from './TabsContainer';
 

@@ -9,6 +9,10 @@ const TabsContainer = ({ tab, setTab }) => {
                 onPress={() => setTab(1)}
                 bgColor={tab === 1 ? "black" : null}
                 color={tab === 1 ? "white" : null}
+                style={{
+                    borderColor: "black",
+                    borderWidth: tab === 1 ? 0 : 1,
+                }}
                 containerStyle={{
                     flex: 1
                 }}
@@ -22,6 +26,10 @@ const TabsContainer = ({ tab, setTab }) => {
                 onPress={() => setTab(2)}
                 bgColor={tab === 2 ? "black" : null}
                 color={tab === 2 ? "white" : null}
+                style={{
+                    borderColor: "black",
+                    borderWidth: tab === 2 ? 0 : 1,
+                }}
                 containerStyle={{
                     flex: 1
                 }}

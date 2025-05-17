@@ -3,16 +3,16 @@ import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 const AppButton = ({
     bgColor = "transparent",
-    color,
+    color = "black",
     style,
     containerStyle,
     textStyle,
     onPress,
     rippleColor = "gray",
-    disabled=false,
+    disabled = false,
     children,
 }) => {
-    
+
     return (
         <View style={[styles.container, containerStyle]}>
             <Pressable
@@ -24,7 +24,7 @@ const AppButton = ({
                 disabled={disabled}
             >
                 <Text style={[styles.text, textStyle, {
-                    color: color || "black",
+                    color: color,
                 }]}>
                     {children}
                 </Text>
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 14,
         paddingVertical: 7,
+        borderRadius: 15,
     },
     pressed: {
         opacity: 0.75
