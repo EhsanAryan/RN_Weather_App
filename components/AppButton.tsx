@@ -1,12 +1,12 @@
 import React, { type ReactNode } from 'react';
-import { GestureResponderEvent, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { GestureResponderEvent, Platform, Pressable, StyleSheet, Text, View, ViewStyle, TextStyle } from 'react-native';
 
 type AppButtonPropsType = {
     bgColor?: string;
     color?: string;
-    style?: object;
-    containerStyle?: object;
-    textStyle?: object;
+    style?: ViewStyle;
+    containerStyle?: ViewStyle;
+    textStyle?: TextStyle;
     onPress: (event?: GestureResponderEvent) => void;
     rippleColor?: string;
     disabled?: boolean;
