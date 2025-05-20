@@ -1,7 +1,9 @@
 import { create } from "zustand";
 import { getWeatherByCoordService, getWeatherByNameService } from "../services/weatherServices";
+import { WeatherStoreType } from "../types";
+import { AxiosError } from "axios";
 
-const useStore = create((set) => ({
+const useStore = create<WeatherStoreType>((set) => ({
     loading: false,
     data: null,
     error: null,
@@ -14,8 +16,9 @@ const useStore = create((set) => ({
             if (response.status === 200) {
                 set({ data: response.data, error: null });
             }
-        } catch (error) {
-            const errorMessage = (error.status === 404 || error.response?.status === 404) ?
+        } catch (err) {
+            const error = err as AxiosError;
+            const errorMessage = error.response?.status === 404 ?
                 "شهر یا کشوری با نام وارد شده وجود ندارد." :
                 "مشکلی رخ داده است، لطفاً چند لحظه دیگر مجدداً تلاش کنید.";
             set({
@@ -34,8 +37,9 @@ const useStore = create((set) => ({
             if (response.status === 200) {
                 set({ data: response.data, error: null });
             }
-        } catch (error) {
-            const errorMessage = (error.status === 404 || error.response?.status === 404) ?
+        } catch (err) {
+            const error = err as AxiosError;
+            const errorMessage = error.response?.status === 404 ?
                 "مختصات وارد شده نامعتبر می‌باشد." :
                 "مشکلی رخ داده است، لطفاً چند لحظه دیگر مجدداً تلاش کنید.";
             set({

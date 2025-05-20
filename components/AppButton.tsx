@@ -1,5 +1,17 @@
-import React from 'react';
-import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { type ReactNode } from 'react';
+import { GestureResponderEvent, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+
+type AppButtonPropsType = {
+    bgColor?: string;
+    color?: string;
+    style?: object;
+    containerStyle?: object;
+    textStyle?: object;
+    onPress: (event?: GestureResponderEvent) => void;
+    rippleColor?: string;
+    disabled?: boolean;
+    children: ReactNode;
+}
 
 const AppButton = ({
     bgColor = "transparent",
@@ -11,7 +23,7 @@ const AppButton = ({
     rippleColor = "gray",
     disabled = false,
     children,
-}) => {
+}: AppButtonPropsType) => {
 
     return (
         <View style={[styles.container, containerStyle]}>

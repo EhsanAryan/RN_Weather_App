@@ -1,5 +1,5 @@
-import { BlurView } from 'expo-blur';
 import React, { useState } from 'react';
+import { BlurView } from 'expo-blur';
 import { StyleSheet } from 'react-native';
 import Query from './Query';
 import Coord from './Coord';
@@ -7,7 +7,7 @@ import Result from './Result';
 import TabsContainer from './TabsContainer';
 
 const Weather = () => {
-    const [tab, setTab] = useState(1); // 1: query, 2: coord
+    const [tab, setTab] = useState<number>(1); // 1: query, 2: coord
 
     return (
         <BlurView intensity={75} tint="light" style={styles.box}>

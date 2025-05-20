@@ -11,14 +11,14 @@ const Coord = () => {
     const data = useStore(state => state.data);
     const loading = useStore(state => state.loading);
 
-    const latInputRef = useRef(null);
-    const lonInputRef = useRef(null);
+    const latInputRef = useRef<TextInput>(null);
+    const lonInputRef = useRef<TextInput>(null);
 
-    const changeLatHandler = (text) => {
+    const changeLatHandler = (text: string) => {
         setLat(text);
     }
 
-    const changeLonHandler = (text) => {
+    const changeLonHandler = (text: string) => {
         setLon(text);
     }
 

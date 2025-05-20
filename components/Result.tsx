@@ -4,8 +4,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 import NetInfo from '@react-native-community/netinfo';
 
-const Result = ({ tab }) => {
-    const [isConnected, setIsConnected] = useState(true);
+type ResultPropsType = {
+    tab: number
+}
+
+const Result = ({ tab }: ResultPropsType) => {
+    const [isConnected, setIsConnected] = useState<boolean>(true);
 
     const data = useStore(state => state.data);
     const error = useStore(state => state.error);
@@ -24,7 +28,7 @@ const Result = ({ tab }) => {
     useEffect(() => {
         // Run whenever error changes
         NetInfo.fetch().then(state => {
-            setIsConnected(state.isConnected);
+            setIsConnected(Boolean(state.isConnected));
         });
     }, [error]);
 

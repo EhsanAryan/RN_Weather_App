@@ -10,7 +10,7 @@ const Query = () => {
     const data = useStore(state => state.data);
     const loading = useStore(state => state.loading);
 
-    const changeQueryHandler = (text) => {
+    const changeQueryHandler = (text: string) => {
         setQuery(text)
     }
 
